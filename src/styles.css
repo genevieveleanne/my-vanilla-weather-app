@@ -9,11 +9,6 @@ span.wind {
   font-size: 25px;
 }
 
-.search-bar,
-.search-button {
-  margin-top: 25px;
-}
-
 h1,
 h2.day-time,
 span.current-temp {
@@ -31,6 +26,11 @@ span.low-temp {
   line-height: 25px;
 }
 
+.search-bar,
+.search-button {
+  margin-top: 25px;
+}
+
 div.weather-app {
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   border: 1px solid white;
@@ -45,12 +45,6 @@ div.weather-app {
 h2.greeting {
   text-align: center;
   font-family: "Merriweather Sans", sans-serif;
-}
-
-.current-city-button {
-  position: relative;
-  top: 25px;
-  right: 150px;
 }
 
 h1 {
@@ -73,8 +67,8 @@ span.current-temp {
 
 small.project-description {
   position: relative;
-  top: 50px;
-  left: -10px;
+  top: 75px;
+  left: -45px;
 }
 
 a {
@@ -85,4 +79,10 @@ a {
 a:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.current-city-button {
+  position: relative;
+  top: 25px;
+  right: 150px;
 }
