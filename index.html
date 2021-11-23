@@ -15,48 +15,53 @@
   </head>
   <body>
     <div class="container">
-      <form>
-        <div class="row">
-          <div class="col-5">
-            <input
-              type="text"
-              placeholder="Enter a city"
-              autofocus="on"
-              autocomplete="off"
-              class="form-control"
-            />
+      <div class="weather-app">
+        <p>Good morning!</p>
+        <form>
+          <div class="row">
+            <div class="col-5">
+              <input
+                type="text"
+                placeholder="Enter a city"
+                autofocus="on"
+                autocomplete="off"
+                class="form-control"
+              />
+            </div>
+            <div class="col-4">
+              <input type="submit" value="Let's Go!" class="btn btn-success" />
+            </div>
+            <div class="col-3">
+              <button class="btn btn-primary">Current City</button>
+            </div>
           </div>
-          <div class="col-4">
-            <input type="submit" value="Let's Go!" class="btn btn-success" />
-          </div>
-          <div class="col-3">
-            <button class="btn btn-primary">Current City</button>
-          </div>
-        </div>
-      </form>
+        </form>
 
-      <div class="row">
-        <div class="col-6">
-          <h1>Las Vegas</h1>
-          <h2>Tuesday 12:00</h2>
-          <p>Sunny</p>
-          <p>
-            <span>Humidity: 17%</span>
-            <span>Wind: 3 mph</span>
-          </p>
-        </div>
-        <div class="col-6">
-          <p>64° F</p>
-          <p>
-            <span>H: 70°</span>
-            <span>L: 48°</span>
-          </p>
+        <div class="row">
+          <div class="col-6">
+            <h1>Las Vegas</h1>
+            <h2>Tuesday 12:00</h2>
+            <p>Sunny</p>
+            <p>
+              <span>Humidity: 17%</span>
+              <span>Wind: 3 mph</span>
+            </p>
+          </div>
+          <div class="col-6">
+            <p>64° F | C</p>
+            <p>
+              <span>H: 70°</span>
+              <span>L: 48°</span>
+            </p>
+          </div>
         </div>
       </div>
-      <p>
+
+      <small>
         This project was coded by Genevieve Leanne Dominguez. It is open-sourced
-        on <a href="#">GitHub</a> and hosted on <a href="#">Netlify</a>.
-      </p>
+        on <a href="#" target="_blank">GitHub</a> and hosted on
+        <a href="#" target="_blank">Netlify</a>.
+      </small>
     </div>
     <script src="src/app.js"></script>
   </body>
