@@ -1,0 +1,88 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #8dc6ff;
+}
+
+p.weather-description,
+span.humidity,
+span.wind {
+  font-size: 25px;
+}
+
+.search-bar,
+.search-button {
+  margin-top: 25px;
+}
+
+h1,
+h2.day-time,
+span.current-temp {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+span.humidity,
+span.wind {
+  line-height: 20px;
+}
+
+span.high-temp,
+span.low-temp {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+div.weather-app {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  border: 1px solid white;
+  border-radius: 10px;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+h2.greeting {
+  text-align: center;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.current-city-button {
+  position: relative;
+  top: 25px;
+  right: 150px;
+}
+
+h1 {
+  margin-top: 25px;
+}
+
+p.weather-description {
+  line-height: 40px;
+}
+
+div.col-6.current-temp-info {
+  position: relative;
+  left: 165px;
+}
+
+span.current-temp {
+  line-height: 100px;
+  font-size: 45px;
+}
+
+small.project-description {
+  position: relative;
+  top: 50px;
+  left: -10px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

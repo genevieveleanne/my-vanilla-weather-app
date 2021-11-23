@@ -10,13 +10,23 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b4b176a315.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Gen's Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="weather-app">
-        <p>Good morning!</p>
+        <h2 class="greeting">Good morning!</h2>
         <form>
           <div class="row">
             <div class="col-5">
@@ -25,14 +35,20 @@
                 placeholder="Enter a city"
                 autofocus="on"
                 autocomplete="off"
-                class="form-control"
+                class="form-control search-bar"
               />
             </div>
             <div class="col-4">
-              <input type="submit" value="Let's Go!" class="btn btn-success" />
+              <input
+                type="submit"
+                value="Let's Go!"
+                class="btn btn-success search-button"
+              />
             </div>
             <div class="col-3">
-              <button class="btn btn-primary">Current City</button>
+              <button class="btn btn-primary current-city-button">
+                <i class="fas fa-map-pin"></i> Current City
+              </button>
             </div>
           </div>
         </form>
@@ -40,28 +56,33 @@
         <div class="row">
           <div class="col-6">
             <h1>Las Vegas</h1>
-            <h2>Tuesday 12:00</h2>
-            <p>Sunny</p>
-            <p>
-              <span>Humidity: 17%</span>
-              <span>Wind: 3 mph</span>
-            </p>
+            <h2 class="day-time">Tuesday 12:00</h2>
+            <p class="weather-description">Sunny</p>
+            <span class="humidity">Humidity: 17% </span>
+            <span class="wind">Wind: 3 mph</span>
           </div>
-          <div class="col-6">
-            <p>64° F | C</p>
+          <div class="col-6 current-temp-info">
+            <span class="current-temp">64° F | C</span>
             <p>
-              <span>H: 70°</span>
-              <span>L: 48°</span>
+              <span class="high-temp">H: 70°</span>
+              <span class="low-temp">L: 48°</span>
             </p>
           </div>
         </div>
+        <small class="project-description">
+          This project was coded by Genevieve Leanne Dominguez. It is
+          open-sourced on
+          <a
+            href="https://github.com/genevieveleanne/my-vanilla-weather-app"
+            target="_blank"
+            >GitHub</a
+          >
+          and hosted on
+          <a href="https://upbeat-benz-e12b13.netlify.app/" target="_blank"
+            >Netlify</a
+          >.
+        </small>
       </div>
-
-      <small>
-        This project was coded by Genevieve Leanne Dominguez. It is open-sourced
-        on <a href="#" target="_blank">GitHub</a> and hosted on
-        <a href="#" target="_blank">Netlify</a>.
-      </small>
     </div>
     <script src="src/app.js"></script>
   </body>
