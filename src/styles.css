@@ -54,6 +54,7 @@ h1 {
 
 p.weather-description {
   line-height: 40px;
+  text-transform: capitalize;
 }
 
 ul {

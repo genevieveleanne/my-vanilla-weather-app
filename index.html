@@ -10,6 +10,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -55,22 +56,30 @@
 
         <div class="row">
           <div class="col-6">
-            <h1>Las Vegas</h1>
+            <h1 id="city-name">Las Vegas</h1>
             <h2 class="day-time">Tuesday 12:00</h2>
-            <p class="weather-description">Sunny</p>
-            <span class="humidity">Humidity: 17% </span>
-            <span class="wind">Wind: 3 mph</span>
+            <p class="weather-description" id="weather-description">Sunny</p>
+            <span class="humidity"
+              >Humidity: <span id="humidity">70</span>%</span
+            >,
+
+            <span class="wind">Wind: <span id="winds">3</span> mph</span>
           </div>
           <div class="col-6 current-temp-info">
             <ul>
-              <li class="current-temp">64° F | C</li>
+              <li class="current-temp">
+                <span id="current-temp">64</span>° F | C
+              </li>
               <li>
-                <span class="high-temp">H: 70°</span>
-                <span class="low-temp">L: 48°</span>
+                <span class="high-temp"
+                  >H: <span id="high-temp">70</span>°</span
+                >
+                <span class="low-temp">L: <span id="low-temp">48</span>°</span>
               </li>
             </ul>
           </div>
         </div>
+
         <small class="project-description">
           This project was coded by Genevieve Leanne Dominguez. It is
           open-sourced on
