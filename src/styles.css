@@ -60,12 +60,16 @@ p.weather-description {
 ul {
   list-style: none;
   padding: 0;
-  margin-left: 200px;
 }
 
 li.current-temp {
   line-height: 100px;
   font-size: 45px;
+  margin-left: 100px;
+}
+
+div.high-and-low-temp {
+  margin-left: 225px;
 }
 
 small.project-description {
