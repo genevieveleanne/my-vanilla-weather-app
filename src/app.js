@@ -27,7 +27,7 @@ let h2 = document.querySelector("h2.day-time");
 h2.innerHTML = showDate(now);
 // Format Day and Time Complete
 
-// Current Weather Begins
+// Current Weather Call
 function displayCurrentWeather(response) {
   let h1Element = document.querySelector("#city-name");
   let descriptionElement = document.querySelector("#weather-description");
@@ -50,13 +50,23 @@ function displayCurrentWeather(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-// Current Weather Complete
 
-// API Call Begins
-let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
-let units = "imperial";
-let city = "Sacramento";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+// API Call
+function search(city) {
+  let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayCurrentWeather);
+}
 
-axios.get(apiUrl).then(displayCurrentWeather);
-// API Call Complete
+// Search Engine Call
+function findCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-bar");
+  search(cityInput.value);
+}
+
+search("Las Vegas");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", findCity);
