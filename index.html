@@ -27,7 +27,7 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <h2 class="greeting">Good morning!</h2>
+        <h2 class="greeting" id="greeting">Good morning!</h2>
         <form id="search-form">
           <div class="row">
             <div class="col-5">
@@ -48,7 +48,10 @@
               />
             </div>
             <div class="col-3">
-              <button class="btn btn-primary current-city-button">
+              <button
+                class="btn btn-primary current-city-button"
+                id="current-city-button"
+              >
                 <i class="fas fa-map-pin"></i> Current City
               </button>
             </div>
@@ -58,28 +61,29 @@
         <div class="row">
           <div class="col-6">
             <h1 id="city-name">Las Vegas</h1>
-            <h2 class="day-time">Tuesday 12:00</h2>
-            <p class="weather-description" id="weather-description">Sunny</p>
+            <h2 class="day-time">__________</h2>
+            <p class="weather-description" id="weather-description">____</p>
             <span class="humidity"
-              >Humidity: <span id="humidity">70</span>%</span
+              >Humidity: <span id="humidity">__</span>%</span
             >,
 
-            <span class="wind">Wind: <span id="winds">3</span> mph</span>
+            <span class="wind">Wind: <span id="winds">_</span> mph</span>
           </div>
           <div class="col-6 current-temp-info">
             <ul>
               <li class="current-temp">
                 <span><img src="" class="float-left" id="icon" /> </span>
-                <span id="current-temp">64</span>° <a href="#">F</a> |
-                <a href="#">C</a>
+                <span id="current-temp">__</span>°
+                <a href="#" id="fahrenheit-temp" class="active">F</a> |
+                <a href="#" id="celsius-temp">C</a>
               </li>
               <li>
                 <div class="high-and-low-temp">
                   <span class="high-temp"
-                    >H: <span id="high-temp">70</span>°</span
+                    >H: <span id="high-temp">__</span>°</span
                   >
                   <span class="low-temp"
-                    >L: <span id="low-temp">48</span>°</span
+                    >L: <span id="low-temp">__</span>°</span
                   >
                 </div>
               </li>

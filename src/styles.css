@@ -72,6 +72,15 @@ div.high-and-low-temp {
   margin-left: 225px;
 }
 
+a.active {
+  color: black;
+}
+
+a.active:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
 small.project-description {
   position: relative;
   top: 75px;
