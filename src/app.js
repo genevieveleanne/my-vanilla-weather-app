@@ -45,8 +45,8 @@ function displayCurrentWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#winds");
   let currentTempElement = document.querySelector("#current-temp");
-  let HighTempElement = document.querySelector("#high-temp");
-  let LowTempElement = document.querySelector("#low-temp");
+  let highTempElement = document.querySelector("#high-temp");
+  let lowTempElement = document.querySelector("#low-temp");
   let iconElement = document.querySelector("#icon");
 
   fahrenheitTemperature = response.data.main.temp;
@@ -56,8 +56,8 @@ function displayCurrentWeather(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
-  HighTempElement.innerHTML = Math.round(response.data.main.temp_max);
-  LowTempElement.innerHTML = Math.round(response.data.main.temp_min);
+  highTempElement.innerHTML = Math.round(response.data.main.temp_max);
+  lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -82,17 +82,18 @@ function findCity(event) {
 // Celsius Temperature Call
 function showCelsiusTemp(event) {
   event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("inactive");
+  celsiusLink.classList.add("inactive");
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
   let currentTempElement = document.querySelector("#current-temp");
   currentTempElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+// Fahrenheit Temperature Call
 function showFahrenheitTemp(event) {
   event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("inactive");
+  fahrenheitLink.classList.add("inactive");
   let currentTempElement = document.querySelector("#current-temp");
   currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
 }

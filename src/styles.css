@@ -3,16 +3,23 @@ body {
   background-color: #8dc6ff;
 }
 
+h1,
+h2.greeting,
+h2.day-time,
+li.current-temp,
+div.forecast {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 p.weather-description,
 span.humidity,
 span.wind {
   font-size: 25px;
 }
 
-h1,
-h2.day-time,
-li.current-temp {
-  font-family: Arial, Helvetica, sans-serif;
+h2.greeting,
+div.forecast {
+  text-align: center;
 }
 
 span.humidity,
@@ -43,8 +50,6 @@ div.weather-app {
 }
 
 h2.greeting {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
 }
 
@@ -72,13 +77,22 @@ div.high-and-low-temp {
   margin-left: 225px;
 }
 
-a.active {
+a.inactive {
   color: black;
 }
 
-a.active:hover {
+a.inactive:hover {
   text-decoration: none;
   cursor: default;
+}
+
+div.forecast {
+  margin-top: 70px;
+  font-size: 20px;
+}
+
+span.forecast-low-temperature {
+  opacity: 0.7;
 }
 
 small.project-description {
