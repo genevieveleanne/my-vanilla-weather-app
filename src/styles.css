@@ -27,15 +27,19 @@ span.wind {
   line-height: 20px;
 }
 
-span.high-temp,
-span.low-temp {
-  font-size: 25px;
-  line-height: 25px;
-}
-
 .search-bar,
 .search-button {
   margin-top: 25px;
+}
+
+p.weather-description,
+div.forecast-description {
+  text-transform: capitalize;
+}
+
+div.forecast-description,
+span.forecast-low-temperature {
+  opacity: 0.7;
 }
 
 div.weather-app {
@@ -59,7 +63,6 @@ h1 {
 
 p.weather-description {
   line-height: 40px;
-  text-transform: capitalize;
 }
 
 ul {
@@ -68,13 +71,9 @@ ul {
 }
 
 li.current-temp {
-  line-height: 100px;
+  margin-top: 50px;
   font-size: 45px;
   margin-left: 100px;
-}
-
-div.high-and-low-temp {
-  margin-left: 225px;
 }
 
 a.inactive {
@@ -88,12 +87,7 @@ a.inactive:hover {
 
 div.forecast {
   margin-top: 70px;
-  margin-left: 115px;
   font-size: 20px;
-}
-
-span.forecast-low-temperature {
-  opacity: 0.7;
 }
 
 small.project-description {

@@ -1,4 +1,4 @@
-// Format Day and Time
+// Format Current Day and Time Begins
 function showDate(date) {
   let days = [
     "Sunday",
@@ -37,31 +37,62 @@ function showDate(date) {
 let now = new Date();
 let h2 = document.querySelector("h2.day-time");
 h2.innerHTML = showDate(now);
+// Format Current Day and Time Complete
 
-// Display Forecast
+// Format Forecast Day Begins
+function formatForecastDay(timestamp) {
+  let day = new Date(timestamp * 1000);
+  let weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let getDay = day.getDay();
+
+  return weekdays[getDay];
+}
+// Format Forecast Day Complete
+
+// Display Forecast Begins
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let dailyForecast = response.data.daily;
+
   let forecast = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row forecast">`;
-  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col-2">
-      <div class="forecast-day">${day}</div>
-      <img src="https://openweathermap.org/img/wn/01d@2x.png" width="50" />
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
+      <div class="forecast-day">${formatForecastDay(forecastDay.dt)}</div>
+      <div class ="forecast-description">${
+        forecastDay.weather[0].description
+      }</div>
+      <img src="https://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png" width="50" />
       <div class="forecast-temperature">
-      <span class="forecast-high-temperature">70°</span>
-      <span class="forecast-low-temperature">65°</span>
+      <span class="forecast-high-temperature">${Math.round(
+        forecastDay.temp.max
+      )}°</span>
+      <span class="forecast-low-temperature">${Math.round(
+        forecastDay.temp.min
+      )}°</span>
       </div>
       </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
 
   forecast.innerHTML = forecastHTML;
 }
+// Display Forecast Complete
 
 // Forecast Call
 function getForecast(coordinates) {
@@ -70,15 +101,13 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-// Current Weather Call
+// Display Current Weather Begins
 function displayCurrentWeather(response) {
   let h1Element = document.querySelector("#city-name");
   let descriptionElement = document.querySelector("#weather-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#winds");
   let currentTempElement = document.querySelector("#current-temp");
-  let highTempElement = document.querySelector("#high-temp");
-  let lowTempElement = document.querySelector("#low-temp");
   let iconElement = document.querySelector("#icon");
 
   fahrenheitTemperature = response.data.main.temp;
@@ -88,8 +117,6 @@ function displayCurrentWeather(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
-  highTempElement.innerHTML = Math.round(response.data.main.temp_max);
-  lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -97,6 +124,7 @@ function displayCurrentWeather(response) {
 
   getForecast(response.data.coord);
 }
+// Display Current Weather Complete
 
 // API Call
 function search(city) {
@@ -113,7 +141,7 @@ function findCity(event) {
   search(cityInput.value);
 }
 
-// Celsius Temperature Call
+// Celsius Temperature Begins
 function showCelsiusTemp(event) {
   event.preventDefault();
   fahrenheitLink.classList.remove("inactive");
@@ -122,8 +150,9 @@ function showCelsiusTemp(event) {
   let currentTempElement = document.querySelector("#current-temp");
   currentTempElement.innerHTML = Math.round(celsiusTemperature);
 }
+// Celsius Temperature Complete
 
-// Fahrenheit Temperature Call
+// Fahrenheit Temperature Begins
 function showFahrenheitTemp(event) {
   event.preventDefault();
   celsiusLink.classList.remove("inactive");
@@ -131,6 +160,7 @@ function showFahrenheitTemp(event) {
   let currentTempElement = document.querySelector("#current-temp");
   currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+// Fahrenheit Temperature Complete
 
 // Default City When Page Loads
 search("Las Vegas");
@@ -141,7 +171,7 @@ let fahrenheitTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", findCity);
 
-// Current City Button Call
+// Current City Button Call Begins
 function showPosition(position) {
   let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
   let lat = position.coords.latitude;
@@ -158,6 +188,7 @@ function getCurrentPosition(event) {
 
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", getCurrentPosition);
+// Current City Button Call Complete
 
 // Celsius Temperature Call
 let celsiusLink = document.querySelector("#celsius-temp");
