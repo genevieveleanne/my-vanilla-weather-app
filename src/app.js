@@ -77,10 +77,10 @@ function displayForecast(response) {
         forecastDay.weather[0].icon
       }@2x.png" width="50" />
       <div class="forecast-temperature">
-      <span class="forecast-high-temperature">${Math.round(
+      <span class="forecast-high-temperature">H:${Math.round(
         forecastDay.temp.max
       )}°</span>
-      <span class="forecast-low-temperature">${Math.round(
+      <span class="forecast-low-temperature">L:${Math.round(
         forecastDay.temp.min
       )}°</span>
       </div>
@@ -110,13 +110,11 @@ function displayCurrentWeather(response) {
   let currentTempElement = document.querySelector("#current-temp");
   let iconElement = document.querySelector("#icon");
 
-  fahrenheitTemperature = response.data.main.temp;
-
   h1Element.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
+  currentTempElement.innerHTML = Math.round(response.data.main.temp);
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -134,44 +132,15 @@ function search(city) {
   axios.get(apiUrl).then(displayCurrentWeather);
 }
 
-// Search Engine Call
+// User Input Begins
 function findCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-bar");
   search(cityInput.value);
 }
+// User Input Complete
 
-// Celsius Temperature Begins
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("inactive");
-  celsiusLink.classList.add("inactive");
-  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  let currentTempElement = document.querySelector("#current-temp");
-  currentTempElement.innerHTML = Math.round(celsiusTemperature);
-}
-// Celsius Temperature Complete
-
-// Fahrenheit Temperature Begins
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("inactive");
-  fahrenheitLink.classList.add("inactive");
-  let currentTempElement = document.querySelector("#current-temp");
-  currentTempElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-// Fahrenheit Temperature Complete
-
-// Default City When Page Loads
-search("Las Vegas");
-
-let fahrenheitTemperature = null;
-
-// Search Engine Call
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", findCity);
-
-// Current City Button Call Begins
+// Current City Display Begins
 function showPosition(position) {
   let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
   let lat = position.coords.latitude;
@@ -188,12 +157,11 @@ function getCurrentPosition(event) {
 
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", getCurrentPosition);
-// Current City Button Call Complete
+// Current City Display Complete
 
-// Celsius Temperature Call
-let celsiusLink = document.querySelector("#celsius-temp");
-celsiusLink.addEventListener("click", showCelsiusTemp);
+// Default City When Page Loads
+search("Las Vegas");
 
-// Fahrenheit Temperature Call
-let fahrenheitLink = document.querySelector("#fahrenheit-temp");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+// Search Engine Call
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", findCity);
