@@ -28,6 +28,7 @@
     <div class="container">
       <div class="weather-app">
         <h2 class="greeting" id="greeting">Good morning!</h2>
+
         <form id="search-form">
           <div class="row">
             <div class="col-5">
@@ -66,7 +67,6 @@
             <span class="humidity"
               >Humidity: <span id="humidity">__</span>%</span
             >,
-
             <span class="wind">Wind: <span id="winds">_</span> mph</span>
           </div>
           <div class="col-6 current-temp-info">
@@ -91,19 +91,7 @@
           </div>
         </div>
 
-        <div class="row forecast">
-          <div class="col-2">
-            <div class="forecast-day">Tuesday</div>
-            <img
-              src="https://openweathermap.org/img/wn/01d@2x.png"
-              width="50"
-            />
-            <div class="forecast-temperature">
-              <span class="forecast-high-temperature">70°</span>
-              <span class="forecast-low-temperature">65°</span>
-            </div>
-          </div>
-        </div>
+        <div id="forecast"></div>
 
         <small class="project-description">
           This project was coded by Genevieve Leanne Dominguez. It is
