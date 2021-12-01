@@ -124,14 +124,6 @@ function displayCurrentWeather(response) {
 }
 // Display Current Weather Complete
 
-// API Call
-function search(city) {
-  let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
-  let units = "imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayCurrentWeather);
-}
-
 // User Input Begins
 function findCity(event) {
   event.preventDefault();
@@ -158,6 +150,14 @@ function getCurrentPosition(event) {
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", getCurrentPosition);
 // Current City Display Complete
+
+// API Call
+function search(city) {
+  let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayCurrentWeather);
+}
 
 // Default City When Page Loads
 search("Las Vegas");
