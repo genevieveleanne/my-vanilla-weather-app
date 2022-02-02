@@ -96,7 +96,7 @@ function displayForecast(response) {
 
 // Forecast Call
 function getForecast(coordinates) {
-  let apiKey = "1d92aebec33d3d8890c4cc40ed26f1eb";
+  let apiKey = "1fc48f0961dfe9fce83c65e9089afb69";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
